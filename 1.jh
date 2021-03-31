@@ -1,0 +1,105 @@
+entity Project {
+	projectUrl String,
+	description String,
+	projectName String required,
+	comment String,
+	status ProjectStatus,
+    created ZonedDateTime,
+    edited  ZonedDateTime
+}
+
+enum ProjectStatus {
+	NEW,
+	CLOSED,
+	ENDED,
+	ACTIVE,
+    DELETED,
+    STOPED
+}
+
+entity Task {
+	author String,
+   	implementer String,
+	name String required,
+	text String,
+	comment String,
+	status TaskAndProjectStatus,
+    created ZonedDateTime,
+    edited  ZonedDateTime
+}
+
+enum TaskAndProjectStatus {
+	NEW,
+	CLOSED,
+	ENDED,
+	ACTIVE,
+    DELETED,
+    STOPED
+}
+
+entity Comment {
+	author String,
+	text String,
+	status CommentStatus,
+    created ZonedDateTime,
+    edited  ZonedDateTime
+}
+
+enum CommentStatus {
+	NEW,
+    POSTED,
+    DELETED
+}
+
+entity UserInfo {
+	email String required unique,
+	gitHubId String,
+	name String required,
+	hours Long min(0) max(169),
+	status UserStatus,
+	birthday LocalDate,
+    comment String,
+    created ZonedDateTime,
+    edited  ZonedDateTime
+}
+
+enum UserStatus {
+	WAITING_FOR_A_TASK,
+    BUSY,
+    TEMPORARILY_INACTIVE,
+    ACADEMIC_LEAVE,
+    DELETED,
+    BANNED
+}
+
+
+
+entity Message {
+	author String,
+	recepient String,
+	text String,
+	status MessageStatus,
+    created ZonedDateTime,
+    edited  ZonedDateTime
+}
+
+enum MessageStatus {
+	NEW,
+    READED,
+    EDITED,
+    DELETED
+}
+
+relationship OneToMany{
+	Project{task} to Task{project} 
+}
+
+relationship OneToMany{
+  Task{comment} to Comment {task}
+} 
+
+paginate Task, Project, Comment, Message with pagination
+
+service all with serviceImpl 
+filter UserInfo, Task, Message, Project
+
