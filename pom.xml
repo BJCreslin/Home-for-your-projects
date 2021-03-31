@@ -7,7 +7,7 @@
 
     <groupId>ru.bjcreslin</groupId>
     <artifactId>home-for-your-projects</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <name>Home For Your Projects</name>
 
