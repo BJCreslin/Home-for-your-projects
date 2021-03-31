@@ -42,7 +42,9 @@
     "rememberMeKey": "c0d45c416d496f772a2c382d44ca0c9ee770479d89d1f2228db8658e90550cb528c3fdb5dd6a84003c5db679d0c1b01eba76",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Project", "Task", "Comment", "UserInfo", "Message"],
+    "lastLiquibaseTimestamp": 1617158943000
   },
   "git-provider": "GitHub",
   "git-company": "BJCreslin",
