@@ -565,7 +565,7 @@ class TaskResourceIT {
 
     @Test
     @Transactional
-    void getAllTasksByCommentIsEqualToSomething() throws Exception {
+    void getAllTasksByCommentIsEqualToSomethingTest() throws Exception {
         // Initialize the database
         taskRepository.saveAndFlush(task);
 
